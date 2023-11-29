@@ -21,11 +21,13 @@
 template <typename TYPE,typename classe_de_dispersion>
 void unordered_multiset<TYPE, classe_de_dispersion>::iterator::avancer()
 {
+    // TODO: 1 iterator::avancer()
 }
 
 template <typename TYPE,typename classe_de_dispersion>
 void unordered_multiset<TYPE, classe_de_dispersion>::iterator::reculer()
 {
+    // TODO: 2 iterator::reculer()
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -35,6 +37,7 @@ template <typename TYPE,typename classe_de_dispersion>
 typename unordered_multiset<TYPE,classe_de_dispersion>::iterator
 unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
 {
+    // TODO: 3 insert(const TYPE& val)
     typename unordered_multiset<TYPE,classe_de_dispersion>::iterator p;
     return p;
 }
@@ -42,6 +45,7 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
 template <typename TYPE,typename classe_de_dispersion>
 size_t unordered_multiset<TYPE, classe_de_dispersion>::erase(const TYPE& val)
 {
+    // TODO: 4 erase(const TYPE& val)
     size_t nb=0;
     return nb;
 }
@@ -50,6 +54,7 @@ template <typename TYPE,typename classe_de_dispersion>
 typename unordered_multiset<TYPE,classe_de_dispersion>::iterator
 unordered_multiset<TYPE, classe_de_dispersion>::erase(typename unordered_multiset<TYPE, classe_de_dispersion>::iterator i)
 {
+    // TODO: 5 erase(typename unordered_multiset<TYPE, classe_de_dispersion>::iterator i)
     return i;
 }
 

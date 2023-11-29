@@ -9,5 +9,7 @@ using namespace std;
 int main()
 {
 	cout << "Hello CMake." << endl;
+	unordered_multiset<int> m1;
+	cout << m1 << endl;
 	return 0;
 }
