@@ -22,6 +22,7 @@ template <typename TYPE,typename classe_de_dispersion>
 void unordered_multiset<TYPE, classe_de_dispersion>::iterator::avancer()
 {
     // TODO: 1 iterator::avancer()
+    m_alv++;
 }
 
 template <typename TYPE,typename classe_de_dispersion>
@@ -39,6 +40,10 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
 {
     // TODO: 3 insert(const TYPE& val)
     typename unordered_multiset<TYPE,classe_de_dispersion>::iterator p;
+    classe_de_dispersion hash;
+    list<TYPE>* l = new list<TYPE>();
+    l->push_back(val);
+    m_rep[hash(val)] = l;
     return p;
 }
 

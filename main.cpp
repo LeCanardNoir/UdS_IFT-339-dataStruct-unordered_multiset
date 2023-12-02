@@ -9,7 +9,10 @@ using namespace std;
 int main()
 {
 	cout << "Hello CMake." << endl;
-	unordered_multiset<int> m1;
+	unordered_multiset<string> m1(10);
+	m1.insert("test");
+	m1.insert("test2");
+	m1.insert("test3");
 	cout << m1 << endl;
 	return 0;
 }
