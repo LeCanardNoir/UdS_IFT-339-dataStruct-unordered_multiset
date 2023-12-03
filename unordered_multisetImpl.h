@@ -81,7 +81,7 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
             m_rep.push_back(nullptr);
         }*/
         m_rep.back() = last;
-        //rehash(newSize);
+        rehash(newSize);
     }
     return p;
 }
