@@ -71,16 +71,12 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
     float n = (float)m_size;
     float a = n / N;
 
-    if (!(a < 1)) {
+    if ( !(a < 1) ) {
         size_t newSize = m_rep.size() * 2 - 1;
-        list<TYPE>* last = m_rep[N - 1];
+        /*list<TYPE>* last = m_rep[N - 1];
         m_rep[N - 1] = nullptr;
         m_rep.resize(newSize);
-        /*for (size_t i = n - 1; i < newSize - 1; i++)
-        {
-            m_rep.push_back(nullptr);
-        }*/
-        m_rep.back() = last;
+        m_rep.back() = last;*/
         rehash(newSize);
     }
     return p;
