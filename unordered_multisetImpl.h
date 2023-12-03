@@ -38,9 +38,9 @@ void unordered_multiset<TYPE, classe_de_dispersion>::iterator::reculer()
         m_pos = (*m_alv)[(*m_alv)->size() - 1];*/
 
     --m_pos;
-    if (m_pos == (*m_alv)->begin()) {
+    if (m_pos == (*m_alv)->rend()) {
         --m_alv;
-        m_pos = (*m_alv)->end();
+        m_pos = (*m_alv)->rbegin();
     }
 }
 
@@ -75,9 +75,13 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
         size_t newSize = m_rep.size() * 2 - 1;
         /*list<TYPE>* last = m_rep[N - 1];
         m_rep[N - 1] = nullptr;
-        m_rep.resize(newSize);
+        m_rep.reserve(newSize);
+        for (size_t i = N - 1; i < newSize; i++)
+        {
+            m_rep.push_back(nullptr);
+        }
         m_rep.back() = last;*/
-        rehash(newSize);
+        rehash(N);
     }
     return p;
 }
