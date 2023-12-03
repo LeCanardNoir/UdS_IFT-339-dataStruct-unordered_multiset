@@ -22,9 +22,9 @@ template <typename TYPE,typename classe_de_dispersion>
 void unordered_multiset<TYPE, classe_de_dispersion>::iterator::avancer()
 {
     // TODO: 1 iterator::avancer()
-    ++m_pos;
+    m_pos++;
     if (m_pos == (*m_alv)->end()) {
-        ++m_alv;
+        m_alv++;
         m_pos = (*m_alv)->begin();
     }
 
@@ -54,6 +54,15 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
     // TODO: 3 insert(const TYPE& val)
     typename unordered_multiset<TYPE,classe_de_dispersion>::iterator p;
 
+    // Voir note de cours 13 page 14
+    float N = (float)m_rep.size();
+    float n = (float)m_size;
+    float a = n / N;
+
+    if (!(a < 1)) {
+        rehash(N);
+    }
+
 
     size_t alv = disperseur(val) % (m_rep.size() - 1);
     
@@ -64,25 +73,6 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
     m_rep[alv]->push_back(val);
 
     m_size++;
-
-
-    // Voir note de cours 13 page 14
-    float N = (float)m_rep.size();
-    float n = (float)m_size;
-    float a = n / N;
-
-    if ( !(a < 1) ) {
-        size_t newSize = m_rep.size() * 2 - 1;
-        /*list<TYPE>* last = m_rep[N - 1];
-        m_rep[N - 1] = nullptr;
-        m_rep.reserve(newSize);
-        for (size_t i = N - 1; i < newSize; i++)
-        {
-            m_rep.push_back(nullptr);
-        }
-        m_rep.back() = last;*/
-        rehash(N);
-    }
     return p;
 }
 
