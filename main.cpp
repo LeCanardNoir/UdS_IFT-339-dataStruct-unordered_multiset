@@ -27,14 +27,6 @@ int main()
 	m1.insert("quinze");
 	m1.insert("seize");
 	cout << m1 << endl;
-	for (auto it = m1.begin(); it != m1.end(); ++it)
-	{
-		cout << *it << endl;
-	}
 
-	for (auto it = m1.end(); it != m1.begin(); --it)
-	{
-		cout << *it << endl;
-	}
 	return 0;
 }
