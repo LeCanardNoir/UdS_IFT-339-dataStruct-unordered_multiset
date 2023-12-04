@@ -87,6 +87,22 @@ size_t unordered_multiset<TYPE, classe_de_dispersion>::erase(const TYPE& val)
 {
     // TODO: 4 erase(const TYPE& val)
     size_t nb=0;
+
+    size_t alv = disperseur(val) % (m_rep.size() - 1);
+
+    if (!m_rep[alv]) return nb;
+
+    nb = count(val);
+
+    for (auto& x : *m_rep[alv]) {
+        if (val == x) {
+
+            erase();
+        }
+    }
+
+    
+
     return nb;
 }
 
