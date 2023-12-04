@@ -37,5 +37,15 @@ int main()
 
 	cout << m1 << endl;
 
+	for(auto it = m1.begin(); it != m1.end(); ++it)
+		cout << *it + ", ";
+
+
+	cout << endl;
+	cout << endl;
+
+	for (auto it_back = --m1.end(); it_back != m1.begin(); --it_back)
+		cout << *it_back + ", ";
+
 	return 0;
 }

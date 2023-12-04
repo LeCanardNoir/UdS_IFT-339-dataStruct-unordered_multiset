@@ -39,10 +39,10 @@ void unordered_multiset<TYPE, classe_de_dispersion>::iterator::reculer()
         m_pos = (*m_alv)[(*m_alv)->size() - 1];*/
 
     --m_pos;
-    if (m_pos == (*m_alv)->rend()) {
+    if (m_pos == (*m_alv)->end()) {
         --m_alv;
         while (*m_alv == nullptr) --m_alv;
-            m_pos = (*m_alv)->rbegin();
+            m_pos = (*m_alv)->begin();
     }
 }
 
