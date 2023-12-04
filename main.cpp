@@ -10,13 +10,30 @@ int main()
 {
 	cout << "Hello CMake." << endl;
 	unordered_multiset<string> m1;
-	
-	for (size_t i = 0; i < 100; i++)
+	size_t i = 0;
+
+	for (; i < 8; i++)
 	{
 		m1.insert("data(" + std::to_string(i) + ")");
 	}
 
+	cout << m1 << endl;
+
 	m1.erase("data(7)");
+
+	cout << m1 << endl;
+
+	for (; i < 64; i++)
+	{
+		m1.insert("data(" + std::to_string(i) + ")");
+	}
+
+	cout << m1 << endl;
+
+	m1.erase("data(10)");
+	m1.erase("data(10)");
+	m1.erase("data(13)");
+	m1.erase("data(29)");
 
 	cout << m1 << endl;
 

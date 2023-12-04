@@ -55,7 +55,6 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
 {
     // TODO: 3 insert(const TYPE& val)
     typename unordered_multiset<TYPE, classe_de_dispersion>::iterator p;
-    //if (typeid(val) < 32) return p;
 
     size_t alv = disperseur(val) % (m_rep.size() - 1);
     
@@ -89,16 +88,21 @@ size_t unordered_multiset<TYPE, classe_de_dispersion>::erase(const TYPE& val)
     size_t nb=0;
 
     size_t alv = disperseur(val) % (m_rep.size() - 1);
-
     if (!m_rep[alv]) return nb;
 
     nb = count(val);
+    size_t count = 0;
 
-    for (auto& x : *m_rep[alv]) {
-        if (val == x) {
+    auto i_avl = m_rep.begin() + alv;
+    typename unordered_multiset<TYPE, classe_de_dispersion>::iterator it(i_avl, m_rep[alv]->begin());
+    size_t size = (*i_avl)->size();
 
-            erase();
+    for (size_t i = 0; count <= nb && i < size ; ++i) {
+        if (val == *it) {
+            erase(it);
+            ++count;
         }
+        ++it;
     }
 
     
@@ -116,10 +120,12 @@ unordered_multiset<TYPE, classe_de_dispersion>::erase(typename unordered_multise
     auto pos = i.m_pos;
 
     if (!(*alv) || pos == (*alv)->end()) return end();
-
-    pos = (*alv)->erase(pos);
+    
+    delete (*alv);
+    (*alv) = nullptr;
 
     --m_size;
+    i = iterator(--m_rep.end(), m_rep.back()->begin());
 
     return i;
 }
