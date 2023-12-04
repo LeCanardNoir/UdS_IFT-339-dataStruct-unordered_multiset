@@ -27,6 +27,22 @@ int main()
 	m1.insert("quatorze");
 	m1.insert("quinze");
 	m1.insert("seize");
+	m1.insert("dix-sept");
+	m1.insert("dix-huit");
+	m1.insert("dix-neuf");
+	m1.insert("vingt");
+	m1.insert("vingt-un");
+	m1.insert("vingt-deux");
+	m1.insert("vingt-trois");
+	m1.insert("vingt-quatre");
+	m1.insert("vingt-cinq");
+	m1.insert("vingt-six");
+	m1.insert("vingt-sept");
+	m1.insert("vingt-huit");
+	m1.insert("vingt-neuf");
+	m1.insert("trente");
+	m1.insert("trente-un");
+	m1.insert("trente-deux");
 	cout << m1 << endl;
 
 	return 0;
