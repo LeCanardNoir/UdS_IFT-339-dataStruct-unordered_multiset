@@ -121,12 +121,23 @@ unordered_multiset<TYPE, classe_de_dispersion>::erase(typename unordered_multise
 
     if (!(*alv) || pos == (*alv)->end()) return end();
     
-    delete (*alv);
-    (*alv) = nullptr;
-
+    /*delete (*alv);
+    (*alv) = nullptr;*/
+    pos = (*alv)->erase(pos);
+    if ((*alv)->empty()) {
+        m_rep.erase(alv);
+    }
     --m_size;
-    i = iterator(--m_rep.end(), m_rep.back()->begin());
 
+    i = iterator(--m_rep.end(), m_rep.back()->end());
+    float N = (float)m_rep.size();
+    float n = (float)m_size;
+    float a = n / N;
+
+    if (!(1 < a)) {
+        rehash(n);
+        i = unordered_multiset<TYPE, classe_de_dispersion>::iterator(m_rep.end(), m_rep.back()->end());
+    }
     return i;
 }
 
