@@ -73,7 +73,7 @@ unordered_multiset<TYPE, classe_de_dispersion>::insert(const TYPE& val)
     float n = (float)m_size;
     float a = n / N;
 
-    if (!(a < 1)) {
+    if (!(a < m_facteur_max)) {
         rehash(N);
         p = unordered_multiset<TYPE, classe_de_dispersion>::iterator(m_rep.end(), m_rep.back()->end());
     }
@@ -150,7 +150,7 @@ unordered_multiset<TYPE, classe_de_dispersion>::erase(typename unordered_multise
     float n = (float)m_size;
     float a = n / N;
 
-    if (!(1 < a)) {
+    if (!(a < m_facteur_min)) {
         rehash(n);
         i = unordered_multiset<TYPE, classe_de_dispersion>::iterator(m_rep.end(), m_rep.back()->end());
     }
