@@ -92,17 +92,32 @@ size_t unordered_multiset<TYPE, classe_de_dispersion>::erase(const TYPE& val)
 
     nb = count(val);
     size_t count = 0;
+    size_t currentPos = 0;
 
-    auto i_avl = m_rep.begin() + alv;
-    typename unordered_multiset<TYPE, classe_de_dispersion>::iterator it(i_avl, m_rep[alv]->begin());
-    size_t size = (*i_avl)->size();
+    //auto i_avl = m_rep.begin() + alv;
+    //typename unordered_multiset<TYPE, classe_de_dispersion>::iterator it(i_avl, m_rep[alv]->begin());
+    //size_t size = (*i_avl)->size();
+    typename unordered_multiset<TYPE, classe_de_dispersion>::iterator it;
 
-    for (size_t i = 0; count <= nb && i < size ; ++i) {
+    while (count < nb) {
+        alv = disperseur(val) % (m_rep.size() - 1);
+        auto i_avl = m_rep.begin() + alv;
+        if (m_rep[alv]) {
+            it = iterator(i_avl, std::find(m_rep[alv]->begin(), m_rep[alv]->end(), val));
+        }           
+        else {
+            it = iterator(m_rep.end(), m_rep.back()->end());
+            break;
+        }
         if (val == *it) {
             erase(it);
             ++count;
         }
-        ++it;
+        else {
+            break;
+        }
+        ++currentPos;
+        //++it;
     }
 
     

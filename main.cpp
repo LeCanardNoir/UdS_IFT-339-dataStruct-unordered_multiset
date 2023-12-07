@@ -28,6 +28,8 @@ int main()
 		m1.insert("data(" + std::to_string(i) + ")");
 	}
 
+	m1.insert("data(29)");
+
 	cout << m1 << endl;
 
 	m1.erase("data(10)");
