@@ -42,7 +42,8 @@ void unordered_multiset<TYPE, classe_de_dispersion>::iterator::reculer()
     if (m_pos == (*m_alv)->end()) {
         --m_alv;
         while (*m_alv == nullptr) --m_alv;
-            m_pos = (*m_alv)->begin();
+            m_pos = (*m_alv)->end();
+            --m_pos;
     }
 }
 
